@@ -1,35 +1,31 @@
-import { fetchQuery, preloadQuery } from "convex/nextjs";
-import SessionPage from "~/components/session";
-import { api } from "~/convex/_generated/api";
+// import { fetchQuery, preloadQuery } from "convex/nextjs";
+// import SessionPage from "~/components/session";
+// import { api } from "~/convex/_generated/api";
 
-type Parmas = Promise<{
-  code: string;
-}>;
+// type Parmas = Promise<{
+//   code: string;
+// }>;
 
-export default async function Page({ params }: { params: Parmas }) {
-  const { code } = await params;
+// export default async function Page({ params }: { params: Parmas }) {
+//   const { code } = await params;
 
-  const {_id} = await fetchQuery(api.myFunctions.getSession, {
-    code: code,
-  });
+//   const {_id} = await fetchQuery(api.myFunctions.getSession, {
+//     code: code,
+//   });
 
-  const session = await preloadQuery(api.myFunctions.getSession, {
-    code: code,
-  });
+//   const session = await preloadQuery(api.myFunctions.getSession, {
+//     code: code,
+//   });
 
-  const messages = await preloadQuery(api.myFunctions.getMessages, {
-    sessionId: _id,
-  });
+//   const messages = await preloadQuery(api.myFunctions.getMessages, {
+//     sessionId: _id,
+//   });
 
-  const aiPlaces = await preloadQuery(api.myFunctions.getAiPlaces, {
-    sessionId: _id,
-  });
-
-  return (
-    <div>
-      <h1>Session Details</h1>
-      <p>Session ID: {code}</p>
-      <SessionPage session={session} messages={messages} aiPlaces={aiPlaces}/>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <h1>Session Details</h1>
+//       <p>Session ID: {code}</p>
+//       <SessionPage session={session} messages={messages}/>
+//     </div>
+//   );
+// }
