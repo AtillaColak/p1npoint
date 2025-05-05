@@ -27,13 +27,6 @@ export default function Home() {
         >
           Long Trip
         </Button>
-        <Button
-          onClick={() => router.push("/session")}
-          variant="outline"
-          className="fixed border-black text-black hover:bg-black/10"
-        >
-          Test
-        </Button>
       </div>
       <Footer />
     </div>

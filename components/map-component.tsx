@@ -159,7 +159,7 @@ const SimpleGlobe = forwardRef<MapRefHandle, SimpleGlobeProps>(
           }));
         if (d[l]) return; // already initialised
         d[l] = (f: any, ...n: any[]) => r.add(f) && u().then(() => d[l](f, ...n));
-      })({ key: config.key, v: "beta" });
+      })({ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY!, v: "beta" });
 
       // Clean up previous map instances when switching between modes
       const cleanupMaps = () => {
