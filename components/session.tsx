@@ -12,11 +12,13 @@ import { Input } from "./ui/input";
 interface Props {
   session: Preloaded<typeof api.myFunctions.getSession>;
   messages: Preloaded<typeof api.myFunctions.getMessages>;
+  aiPlaces: Preloaded<typeof api.myFunctions.getAiPlaces>;
 }
 
 export default function SessionPage(props: Props) {
   const session = usePreloadedQuery(props.session);
   const messages = usePreloadedQuery(props.messages);
+  const aiPlaces = usePreloadedQuery(props.aiPlaces);
   const username = sessionStorage.getItem("username");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -59,6 +61,9 @@ export default function SessionPage(props: Props) {
             </li>
           ))}
         </ul>
+      </div>
+      <div>
+        {JSON.stringify(aiPlaces?.justification, null, 2)}
       </div>
       <div className="flex flex-row">
         <div className="p-4 border-b flex-col border-slate-200">

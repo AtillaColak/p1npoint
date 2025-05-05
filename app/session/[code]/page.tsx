@@ -21,11 +21,15 @@ export default async function Page({ params }: { params: Parmas }) {
     sessionId: _id,
   });
 
+  const aiPlaces = await preloadQuery(api.myFunctions.getAiPlaces, {
+    sessionId: _id,
+  });
+
   return (
     <div>
       <h1>Session Details</h1>
       <p>Session ID: {code}</p>
-      <SessionPage session={session} messages={messages}/>
+      <SessionPage session={session} messages={messages} aiPlaces={aiPlaces}/>
     </div>
   );
 }
