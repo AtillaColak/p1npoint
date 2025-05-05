@@ -3,7 +3,7 @@ import React, { useEffect, useRef, forwardRef, useImperativeHandle, useMemo } fr
 import type { Place } from "~/lib/types";
 import { PlaceIcon } from "~/lib/places-icons";
 import ReactDOMServer from "react-dom/server";
-
+import config from "~/config.json"
 
 interface SimpleGlobeProps {
   places: Place[];
@@ -174,8 +174,8 @@ const SimpleGlobe = forwardRef<MapRefHandle, SimpleGlobeProps>(
           d[l] = (f: any, ...n: any[]) => r.add(f) && u().then(() => d[l](f, ...n));
         }
       })({
-        key: "AIzaSyCwh_qtFq9i2b25Hymw4oN2W98fQ1wXXxI",
-        v: "alpha",
+        key: config.key,
+        v: "beta",
       });
 
       async function init() {
