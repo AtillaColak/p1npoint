@@ -57,7 +57,7 @@ export function SessionForm() {
       const result = await createSession(values.username);
       if (result.data) {
         sessionStorage.setItem("username", values.username);
-        redirect(`/session/${result.data}`);
+        redirect(`/quickplan/${result.data}`);
       } else {
         toast.error(result.error);
       }
@@ -72,7 +72,7 @@ export function SessionForm() {
         toast.error(result.error);
       } else {
         sessionStorage.setItem("username", values.username);
-        redirect(`/session/${values.sessionId}`);
+        redirect(`/quickplan/${values.sessionId}`);
       }
     }
   }

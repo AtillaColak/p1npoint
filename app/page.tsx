@@ -19,7 +19,7 @@ export default function Home() {
           variant="outline"
           className="fixed -translate-x-24 border-black text-black hover:bg-black/10"
         >
-          <Link href={"/quickplan/1"}>Quick Plan</Link>
+          <Link href={"/quickplan"}>Quick Plan</Link>
         </Button>
         <Button
           variant="default"
