@@ -4,6 +4,7 @@ import Header from "~/components/header";
 import Footer from "~/components/footer";
 import AnimatedGlobe from "~/components/animated-globe";
 import { Button } from "~/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,11 +12,11 @@ export default function Home() {
       <Header />
       <div className="flex flex-col items-center justify-center h-full w-full">
         <AnimatedGlobe />
+        <Button variant="outline" className="fixed -translate-x-24 border-black text-black hover:bg-black/10">
+          <Link href={"/quickplan/1"}>Quick Plan</Link>
+        </Button>
         <Button variant="default" className="fixed translate-x-24 bg-black hover:bg-black/90 text-white">
           Long Trip
-        </Button>
-        <Button variant="outline" className="fixed -translate-x-24 border-black text-black hover:bg-black/10">
-          Quick Plan
         </Button>
       </div>
       <Footer/>  
