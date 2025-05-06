@@ -16,5 +16,4 @@ jobs:
         run: |
           echo "${{ secrets.GCP_SSH_KEY }}" > key.pem
           chmod 600 key.pem
-          rsync -avz -e "ssh -i key.pem -o StrictHostKeyChecking=no" ./ \
-            ${{ secrets.GCP_USER }}@${{ secrets.GCP_SERVER_IP }}:/home/${{ secrets.GCP_USER }}/pinpoint
+          tar czf - . | ssh -i key.pem -o StrictHostKeyChecking=no ${{ secrets.GCP_USER }}@${{ secrets.GCP_SERVER_IP }} "mkdir -p ~/app && tar xzf - -C ~/app"
