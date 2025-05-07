@@ -1,3 +1,5 @@
+// @ts-nocheck
+/// <reference types="@types/google.maps" />
 import React, {
   useEffect,
   useRef,
@@ -8,7 +10,7 @@ import React, {
 import type { Place } from "~/lib/types";
 import { PlaceIcon } from "~/lib/places-icons";
 import ReactDOMServer from "react-dom/server";
-import config from "~/config.json";
+import { env } from "~/env";
 
 interface SimpleGlobeProps {
   places: Place[];
@@ -159,7 +161,7 @@ const SimpleGlobe = forwardRef<MapRefHandle, SimpleGlobeProps>(
           }));
         if (d[l]) return; // already initialised
         d[l] = (f: any, ...n: any[]) => r.add(f) && u().then(() => d[l](f, ...n));
-      })({ key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY!, v: "beta" });
+      })({ key: env.NEXT_PUBLIC_GOOGLE_API_KEY, v: "beta" });
 
       // Clean up previous map instances when switching between modes
       const cleanupMaps = () => {

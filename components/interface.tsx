@@ -65,6 +65,7 @@ export default function QuickInterface({ chatSession, chatMessages }:
                 handleMapToggle={() => setIsMapVisible((prev) => !prev)}
                 chatSession={chatSession}
                 chatMessages={chatMessages}
+                // aiPlaces={ai}
             />
             <Footer/>
         </div>

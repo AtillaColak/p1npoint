@@ -4,6 +4,7 @@ import { api, internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { placeValidator, userPreferenceValidator } from "./schema";
 import { Doc, Id } from "./_generated/dataModel"; // Import Doc type
+import { env } from "~/convex/env";
 
 // Write your Convex functions in any file inside this directory (`convex`).
 // See https://docs.convex.dev/functions for more.
@@ -203,7 +204,9 @@ export const aiCall = action({
   },
   returns: v.id("aiResults"),
   handler: async (ctx, args): Promise<Id<"aiResults">> => {
-    const response = await fetch("http://192.168.2.170:8000/places/chat", {
+    const baseURL = env.LLM_DEV_URL;
+    const url = `${baseURL}/places/chat`;
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

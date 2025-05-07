@@ -23,7 +23,7 @@ interface ChatInterfaceProps {
   handleMapToggle?: () => void
   chatSession: Preloaded<typeof api.myFunctions.getSession>;
   chatMessages: Preloaded<typeof api.myFunctions.getMessages>;
-  aiPlaces: Preloaded<typeof api.myFunctions.getAiPlaces>;
+  // aiPlaces: Preloaded<typeof api.myFunctions.getAiPlaces>;
 }
 
 export default function SessionPage({
@@ -38,7 +38,7 @@ export default function SessionPage({
 }: ChatInterfaceProps) {
   const session = usePreloadedQuery(chatSession);
   const messages = usePreloadedQuery(chatMessages);
-  const aiPlaces = usePreloadedQuery(chatSession);
+  // const aiPlaces = usePreloadedQuery(chatSession);
   const username = sessionStorage.getItem("username");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
