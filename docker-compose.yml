@@ -51,17 +51,17 @@ services:
       backend:
         condition: service_healthy
   
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        - NEXT_PUBLIC_CONVEX_URL=${NEXT_PUBLIC_CONVEX_URL}
-        - NEXT_PUBLIC_GOOGLE_API_KEY=${NEXT_PUBLIC_GOOGLE_API_KEY}
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_CONVEX_URL=http://localhost:3210
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       - NEXT_PUBLIC_CONVEX_URL=${NEXT_PUBLIC_CONVEX_URL}
+  #       - NEXT_PUBLIC_GOOGLE_API_KEY=${NEXT_PUBLIC_GOOGLE_API_KEY}
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NEXT_PUBLIC_CONVEX_URL=http://localhost:3210
     # env_file: 
     #   - .env.local
     # depends_on:
